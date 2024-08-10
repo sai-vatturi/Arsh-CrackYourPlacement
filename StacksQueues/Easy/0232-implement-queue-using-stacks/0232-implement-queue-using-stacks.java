@@ -1,3 +1,5 @@
+import java.util.Stack;
+
 class MyQueue {
     /*
         For implementing Queue using Stacks, Remember this:
