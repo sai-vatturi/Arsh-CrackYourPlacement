@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.Stack;
+
 class StockSpanner {
     /*
         This question is similar to stock span but the difference is, in stock span we need to return res array for all prices, but here we have to return the current elements span
