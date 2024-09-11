@@ -22,9 +22,36 @@ class Solution {
 
         Optimal Approach:
         =================
+        1. Instead of calculating height again and again for every node in the tree, calculate the difference while calaculating the height itself.
+        2. Change the height logic for a binary tree to calculate and check difference of height and return true or false accordingly.
     */
-    int maxHeight = 0;
+    public boolean isBalanced(TreeNode root) {
+        return findHeight(root) != -1;
+    }
 
+    public int findHeight(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+
+        int leftHeight = findHeight(root.left);
+        if (leftHeight == -1) return -1; 
+
+        int rightHeight = findHeight(root.right);
+        if (rightHeight == -1) return -1;
+
+        if (Math.abs(leftHeight - rightHeight) > 1) {
+            return -1; 
+        }
+
+        return Math.max(leftHeight, rightHeight) + 1;
+    }
+
+
+
+    /*
+    Brute Approach:
+    ================
     public boolean isBalanced(TreeNode root) {
         if (root == null) {
             return true;
@@ -50,4 +77,5 @@ class Solution {
 
         return Math.max(leftHeight, rightHeight) + 1;
     }
+    */
 }
